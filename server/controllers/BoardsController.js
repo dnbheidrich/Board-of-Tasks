@@ -30,6 +30,7 @@ export class BoardsController extends BaseController {
 
   async getById(req, res, next) {
     try {
+      //req.body.creatorEmail = req.userInfo.email
       let data = await boardService.getById(req.params.id, req.userInfo.email)
       return res.send(data)
     } catch (error) { next(error) }
