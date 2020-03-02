@@ -26,6 +26,9 @@ export default new Vuex.Store({
     },
     setBoards(state, boards) {
       state.boards = boards
+    },
+    setActiveBoard(state, board) {
+      state.activeBoard = board
     }
   },
   actions: {
@@ -59,8 +62,33 @@ export default new Vuex.Store({
         .then(serverBoard => {
           dispatch('getBoards')
         })
-    }
-    //#endregion
+    },
+
+    async getBoardById({ commit, dispatch }, boardId) {
+      // debugger
+      try {
+        let res = await api.get("boards/" + boardId)
+        //debugger
+        commit("setActiveBoard", res.data);
+        //router.push({ name: "board" });
+
+      } catch (error) {
+        console.error(error);
+      }
+    },
+
+
+
+    // async getCarById({ commit, dispatch }, id) {
+    //   try {
+    //     let res = await _api.get(id);
+    //     commit("setActiveCar", res.data.data); 
+    //   } catch (error) {
+    //     console.error(error);
+    //     // NOTE Push changes the route to the provided route by name
+    //     router.push({ name: "Home" });
+    //   }
+    //   //#endregion
 
 
     //#region -- LISTS --
