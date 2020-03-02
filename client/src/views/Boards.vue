@@ -21,6 +21,7 @@
 <script>
 export default {
   name: "boards",
+  props: ["boardData"],
   mounted() {
     this.$store.dispatch("getBoards");
   },
@@ -41,7 +42,8 @@ export default {
     addBoard() {
       this.$store.dispatch("addBoard", this.newBoard);
       this.newBoard = { title: "", description: "" };
-    }
+    },
+    deleteBoard() {}
   }
 };
 </script>
