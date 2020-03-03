@@ -1,15 +1,21 @@
 <template>
-  <div class="board"></div>
+  <div class="list">
+    <h5>{{list.title}}</h5>
+  </div>
 </template>
 
 
 <script>
 export default {
-  name: "board",
+  name: "list",
   data() {
     return {};
   },
-  computed: {},
+  computed: {
+    list() {
+      return this.$store.state.lists;
+    }
+  },
   methods: {},
   components: {}
 };
