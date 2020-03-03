@@ -14,6 +14,14 @@ class TasksService {
     }
     return data
   }
+  async getTaskByListId(id, userEmail) {
+    let data = await dbContext.Tasks.find({ listId: id, creatorEmail: userEmail })
+    if (!data) {
+      throw new BadRequest("Invalid ID or you do not own this board")
+    }
+    return data
+  }
+ 
 
   async create(rawData) {
     let data = await dbContext.Tasks.create(rawData)
