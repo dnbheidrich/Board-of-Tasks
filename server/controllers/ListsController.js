@@ -9,7 +9,7 @@ import { listsService } from '../services/ListsService'
 //PUBLIC
 export class ListsController extends BaseController {
   constructor() {
-    super("api/boards")
+    super("api/lists")
     this.router = express.Router()
       .use(auth0provider.getAuthorizedUserInfo)
       .get('', this.getAll)
