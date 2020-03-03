@@ -17,10 +17,7 @@
       <button type="submit">Create List</button>
     </form>
     <div id="list-section">
-      <list v-for="(list, index) in lists" :key="list._id" />
-      <!-- <br />
-        {{list.title}}
-      </list>-->
+      <list v-for="(list, index) in lists" :key="list._id" :listData="list" />
     </div>
   </div>
 </template>
@@ -31,7 +28,7 @@
 import List from "../components/List";
 export default {
   name: "board",
-  props: ["boardId"],
+  props: ["listData"],
   mounted() {
     this.$store.dispatch("getBoardById", this.$route.params.boardId);
     this.$store.dispatch("getListsByBoardId", this.$route.params.boardId);
