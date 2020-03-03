@@ -65,10 +65,16 @@ export default new Vuex.Store({
     },
     deleteBoardById({ commit, dispatch }, boardId) {
       api.delete("boards/" + boardId)
-        //commit("setBoards")
         .then(thingy => {
           dispatch('getBoards')
         })
+    },
+    deleteThisBoard2({ commit, dispatch }, boardId) {
+      api.delete("boards/" + boardId)
+      // .then(thingy => {
+      //   dispatch('getBoards')
+      router.push({ name: "boards" });
+      // })
     },
 
     async getBoardById({ commit, dispatch }, boardId) {

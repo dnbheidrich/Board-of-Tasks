@@ -3,6 +3,12 @@
     <h1 v-if="board.title">{{board.title}}</h1>
     <h1 v-else>Loading...Why?!</h1>
     <p>{{board.creatorEmail}}</p>
+    <img
+      src="https://image.flaticon.com/icons/png/512/61/61848.png"
+      class="delete-icon"
+      @click="deleteThisBoard()"
+      alt
+    />
   </div>
 </template>
 
@@ -20,5 +26,19 @@ export default {
       return this.$store.state.activeBoard;
     }
   },
+  methods: {
+    deleteThisBoard() {
+      let id = this.$route.params.boardId;
+      this.$store.dispatch("deleteThisBoard2", id);
+    }
+  }
 };
 </script>
+
+
+<style scoped>
+.delete-icon {
+  width: 1.7%;
+  height: auto;
+}
+</style>
