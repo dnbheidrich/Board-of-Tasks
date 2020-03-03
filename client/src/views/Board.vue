@@ -17,10 +17,10 @@
       <button type="submit">Create List</button>
     </form>
     <div id="list-section">
-      <list v-for="(list, index) in lists" :key="list._id">
-        <br />
+      <list v-for="(list, index) in lists" :key="list._id" />
+      <!-- <br />
         {{list.title}}
-      </list>
+      </list>-->
     </div>
   </div>
 </template>
@@ -60,10 +60,10 @@ export default {
     },
     addList() {
       this.$store.dispatch("addList", this.newList);
-      this.newList = { title: "", boardId: this.$route.params.boardId };
+      // this.newList = { title: "", boardId: this.$route.params.boardId };
     }
   },
-  component: {
+  components: {
     List
   }
 };
