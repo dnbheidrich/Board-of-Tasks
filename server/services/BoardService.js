@@ -14,7 +14,7 @@ class BoardService {
     }
     return data
   }
-
+  
   async create(rawData) {
     let data = await dbContext.Boards.create(rawData)
     return data
