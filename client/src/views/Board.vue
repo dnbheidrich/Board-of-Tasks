@@ -2,6 +2,7 @@
   <div class="board">
     <h1 v-if="board.title">{{board.title}}</h1>
     <h1 v-else>Loading...Why?!</h1>
+    <p>{{board.creatorEmail}}</p>
   </div>
 </template>
 
@@ -9,6 +10,7 @@
 import Board from "../components/board";
 export default {
   name: "board",
+  props: ["boardId"],
   mounted() {
     this.$store.dispatch("getBoardById", this.$route.params.boardId);
   },
@@ -18,6 +20,5 @@ export default {
       return this.$store.state.activeBoard;
     }
   },
-  props: ["boardId"]
 };
 </script>
