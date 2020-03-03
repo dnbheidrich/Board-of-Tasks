@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
+import Vuex, { Store } from 'vuex'
 import Axios from 'axios'
 import router from '../router/index'
 
@@ -60,6 +60,13 @@ export default new Vuex.Store({
     addBoard({ commit, dispatch }, boardData) {
       api.post('boards', boardData)
         .then(serverBoard => {
+          dispatch('getBoards')
+        })
+    },
+    deleteBoardById({ commit, dispatch }, boardId) {
+      api.delete("boards/" + boardId)
+        //commit("setBoards")
+        .then(thingy => {
           dispatch('getBoards')
         })
     },
