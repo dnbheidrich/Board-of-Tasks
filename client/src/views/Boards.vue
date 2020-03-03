@@ -6,12 +6,12 @@
       <input type="text" placeholder="description" v-model="newBoard.description" />
       <button type="submit">Create Board</button>
     </form>
-    <div v-for="board in boards" :key="board._id">
+    <div v-for="(board, index) in boards" :key="board._id">
       <router-link :to="{name: 'board', params: {boardId: board._id}}">{{board.title}}</router-link>
       <img
         src="https://image.flaticon.com/icons/png/512/61/61848.png"
         class="delete-icon"
-        @click="deleteBoard()"
+        @click="deleteBoard(index)"
         alt
       />
     </div>
@@ -43,7 +43,10 @@ export default {
       this.$store.dispatch("addBoard", this.newBoard);
       this.newBoard = { title: "", description: "" };
     },
-    deleteBoard() {}
+    deleteBoard(index) {
+      let id = this.boards[index].id;
+      this.$store.dispatch("deleteBoardById", id);
+    }
   }
 };
 </script>
