@@ -22,7 +22,6 @@ export class ListsController extends BaseController {
 
   async getAll(req, res, next) {
     try {
-      //only gets boards by user who is logged in
       let data = await listsService.getAll(req.userInfo.email)
       return res.send(data)
     }
@@ -31,7 +30,6 @@ export class ListsController extends BaseController {
 
   async getById(req, res, next) {
     try {
-      //req.body.creatorEmail = req.userInfo.email
       let data = await listsService.getById(req.params.id, req.userInfo.email)
       return res.send(data)
     } catch (error) { next(error) }

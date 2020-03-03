@@ -10,8 +10,8 @@ export class BoardsController extends BaseController {
   constructor() {
     super("api/boards")
     this.router = express.Router()
-      .use(auth0provider.getAuthorizedUserInfo)
-      .get('', this.getAll)
+    .use(auth0provider.getAuthorizedUserInfo)
+    .get('', this.getAll) 
       .get('/:id', this.getById)
       .post('', this.create)
       .put('/:id', this.edit)

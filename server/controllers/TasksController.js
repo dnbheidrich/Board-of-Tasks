@@ -6,7 +6,7 @@ import { tasksService } from '../services/TasksService'
 
 
 //PUBLIC
-export class BoardsController extends BaseController {
+export class TasksController extends BaseController {
   constructor() {
     super("api/tasks")
     this.router = express.Router()
@@ -21,7 +21,6 @@ export class BoardsController extends BaseController {
 
   async getAll(req, res, next) {
     try {
-      //only gets boards by user who is logged in
       let data = await tasksService.getAll(req.userInfo.email)
       return res.send(data)
     }
@@ -30,7 +29,6 @@ export class BoardsController extends BaseController {
 
   async getById(req, res, next) {
     try {
-      //req.body.creatorEmail = req.userInfo.email
       let data = await tasksService.getById(req.params.id, req.userInfo.email)
       return res.send(data)
     } catch (error) { next(error) }
