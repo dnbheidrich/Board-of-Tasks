@@ -1,8 +1,20 @@
 <template>
-  <div class="list">
-    <h5>hi</h5>
-    <h4>{{listData.title}}</h4>
+  <div class="list container-fluid">
+    <div class="row text-center">
+<div class="col-3">
+
+    <div class="card text-left">
+      <div class="card-body bg-dark text-white text-center">
+        <h4 class="card-title">
+                 {{listData.title}}
+        </h4>
+        <p class="card-text">{{listData.boardId}}</p>
+      </div>
+    </div>
   </div>
+</div>
+
+</div>
 </template>
 
 
