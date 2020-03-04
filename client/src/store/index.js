@@ -18,8 +18,6 @@ export default new Vuex.Store({
   state: {
     user: {},
     boards: [],
-    lists: [],
-    tasks: [],
     activeBoard: {}
   },
   mutations: {
@@ -31,12 +29,6 @@ export default new Vuex.Store({
     },
     setActiveBoard(state, board) {
       state.activeBoard = board
-    },
-    setLists(state, lists) {
-      state.lists = lists
-    },
-    addList(state, listNew) {
-      state.lists.push(listNew)
     }
   },
   actions: {
@@ -79,41 +71,39 @@ export default new Vuex.Store({
     },
     deleteThisBoard2({ commit, dispatch }, boardId) {
       api.delete("boards/" + boardId)
+      // .then(thingy => {
+      //   dispatch('getBoards')
       router.push({ name: "boards" });
+      // })
     },
 
     async getBoardById({ commit, dispatch }, boardId) {
+      // debugger
       try {
         let res = await api.get("boards/" + boardId)
         commit("setActiveBoard", res.data);
+        //router.push({ name: "board" });
+
       } catch (error) {
         console.error(error);
       }
     },
 
-    //#endregion
+
+
+    // async getCarById({ commit, dispatch }, id) {
+    //   try {
+    //     let res = await _api.get(id);
+    //     commit("setActiveCar", res.data.data); 
+    //   } catch (error) {
+    //     console.error(error);
+    //     // NOTE Push changes the route to the provided route by name
+    //     router.push({ name: "Home" });
+    //   }
+    //   //#endregion
 
 
     //#region -- LISTS --
-
-    async getListsByBoardId({ commit, dispatch }, boardId) {
-      try {
-        let res = await api.get("boards/" + boardId + "/lists")
-        commit("setLists", res.data);
-      } catch (error) {
-        console.error(error);
-      }
-    },
-
-    async addList({ commit, dispatch }, listData) {
-      try {
-        let res = await api.post("lists", listData)
-        // dispatch("getListsByBoardId", listData.boardId)
-        commit("addList", res.data)
-      } catch (error) {
-        console.error(error);
-      }
-    },
 
 
 
