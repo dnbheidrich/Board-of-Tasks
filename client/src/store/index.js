@@ -18,8 +18,8 @@ export default new Vuex.Store({
   state: {
     user: {},
     boards: [],
-    lists:[],
-    tasks:[],
+    lists: [],
+    tasks: [],
     activeBoard: {}
   },
   mutations: {
@@ -38,7 +38,13 @@ export default new Vuex.Store({
     addList(state, listNew) {
       state.lists.push(listNew)
     },
-    
+    setTasks(state, tasks) {
+      state.tasks = tasks
+    },
+    addTask(state, taskNew) {
+      state.tasks.push(taskNew)
+    },
+
   },
   actions: {
     //#region -- AUTH STUFF --
@@ -105,8 +111,8 @@ export default new Vuex.Store({
         console.error(error);
       }
     },
-     //#region -- LISTS --
-     async addList({ commit, dispatch }, listData) {
+    //#region -- LISTS --
+    async addList({ commit, dispatch }, listData) {
       try {
         let res = await api.post("lists", listData)
         // dispatch("getListsByBoardId", listData.boardId)
@@ -116,24 +122,39 @@ export default new Vuex.Store({
       }
     },
 
+    async deleteListById({ commit, dispatch }, { id, boardId }) {
+      try {
+        let res = await api.delete("lists/" + id)
+        //commit("setLists", res.data)
+        dispatch("getListsByBoardId", boardId)
+      } catch (error) {
+        console.error(error);
+      }
+    },
+
+    //#endregion
+    //#region -- TASKS --
 
 
-    // async getCarById({ commit, dispatch }, id) {
-    //   try {
-    //     let res = await _api.get(id);
-    //     commit("setActiveCar", res.data.data); 
-    //   } catch (error) {
-    //     console.error(error);
-    //     // NOTE Push changes the route to the provided route by name
-    //     router.push({ name: "Home" });
-    //   }
-    //   //#endregion
+    async getTasksbyBoardListId({ commit, dispatch }, boarId, listId) {
+      try {
+        debugger
 
+        let res = await api.get("lists/" + listId + "/tasks")
+        commit("setTasks", res.data)
+      } catch (error) {
+        console.error(error);
+      }
+    },
 
-    //#region -- LISTS --
-
-
-
+    async addTask({ commit, dispatch }, taskData) {
+      try {
+        let res = await api.post("tasks", taskData)
+        commit("addTask", res.data)
+      } catch (error) {
+        console.error(error);
+      }
+    }
     //#endregion
   }
 })
