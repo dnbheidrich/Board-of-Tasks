@@ -1,5 +1,5 @@
 <template>
-  <div class="task">hi</div>
+  <div class="task">{{taskData.title}}</div>
 </template>
 
 
