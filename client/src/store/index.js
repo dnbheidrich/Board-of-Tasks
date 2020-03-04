@@ -138,8 +138,6 @@ export default new Vuex.Store({
 
     async getTasksbyBoardListId({ commit, dispatch }, { boardId, listId }) {
       try {
-        debugger
-
         let res = await api.get("lists/" + listId + "/tasks")
         commit("setTasks", res.data)
       } catch (error) {
