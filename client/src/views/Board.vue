@@ -1,5 +1,6 @@
 <template>
   <div class="board">
+
     <h1 v-if="board.title">
       <b>{{board.title}}</b>
       : {{board.description}}
@@ -19,6 +20,8 @@
     <div id="list-section">
       <list v-for="(list, index) in lists" :key="list._id" :listData="list" />
     </div>
+
+
   </div>
 </template>
 
