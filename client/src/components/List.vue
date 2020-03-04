@@ -12,7 +12,7 @@
                 @click="deleteThisList()"
                 alt
               />
-              <input type="text" placeholder="title" required />
+              <input type="text" placeholder="title" v-model="newTask.title" required />
               <!-- v-model="newTask.title" -->
               <button type="submit">Create Task</button>
             </form>
@@ -42,8 +42,8 @@ export default {
     return {
       newTask: {
         title: "",
-        boardId: req.params.boardId,
-        listId: req.params.listId
+        boardId: this.listData.boardId,
+        listId: this.listData.id
       }
     };
   },
