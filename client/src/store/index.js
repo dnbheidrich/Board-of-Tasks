@@ -136,7 +136,7 @@ export default new Vuex.Store({
     //#region -- TASKS --
 
 
-    async getTasksbyBoardListId({ commit, dispatch }, boarId, listId) {
+    async getTasksbyBoardListId({ commit, dispatch }, { boardId, listId }) {
       try {
         debugger
 
