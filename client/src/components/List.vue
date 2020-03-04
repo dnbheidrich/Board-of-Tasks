@@ -35,6 +35,7 @@ export default {
     let listId = this.listData.id;
     let boardId = this.listData.boardId;
     this.$store.dispatch("getTasksbyBoardListId", { boardId, listId });
+    this;
   },
   data() {
     return {
@@ -49,8 +50,8 @@ export default {
     list() {
       return this.$store.state.lists;
     },
-    task() {
-      return this.$store.state.tasks;
+    tasks() {
+      return this.$store.state.tasks[this.listData.id];
     }
   },
   methods: {
@@ -61,10 +62,10 @@ export default {
       let id = this.listData.id;
       let boardId = this.listData.boardId;
       this.$store.dispatch("deleteListById", { id, boardId });
-    },
-    components: {
-      Task
     }
+  },
+  components: {
+    Task
   }
 };
 </script>
