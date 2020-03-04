@@ -48,6 +48,9 @@ export default {
     },
     lists() {
       return this.$store.state.lists;
+    },
+     tasks() {
+      return this.$store.state.tasks;
     }
   },
   methods: {

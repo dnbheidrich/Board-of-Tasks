@@ -14,10 +14,12 @@
               />
               <input type="text" placeholder="title" v-model="newTask.title" required />
               <!-- v-model="newTask.title" -->
-              <button type="submit">Create Task</button>
+              <button  type="submit">Create Task</button>
             </form>
             <!-- <p class="card-text">{{listData.boardId}}</p> -->
-            <task v-for="(task, index) in tasks" :key="task._id" :taskData="task" />
+            <div id="task-section">
+      <task v-for="(task, index) in tasks" :key="task._id" :taskData="task" />
+    </div>
           </div>
         </div>
       </div>
@@ -27,23 +29,28 @@
 
 
 <script>
-import Task from "../components/Task";
+import  Task from "../components/Task";
 export default {
   name: "list",
   props: ["listData"],
+  components: {
+      Task
+    },
   mounted() {
-    this.$store.dispatch(
-      "getTasksbyBoardListId",
-      this.$route.params.boardId,
-      this.lists[index].id
-    );
+    let id = this.listData.id;
+    let boardId = this.listData.boardId;
+    this.$store.dispatch("getTasksbyBoardListId",{ id, boardId });
+    this.$store.dispatch("getBoardById", this.$route.params.boardId);
   },
   data() {
     return {
       newTask: {
         title: "",
-        boardId: this.listData.boardId,
+        boardId:  this.listData.boardId,
         listId: this.listData.id
+
+
+       
       }
     };
   },
@@ -51,10 +58,12 @@ export default {
     list() {
       return this.$store.state.lists;
     },
-    task() {
+     tasks() {
       return this.$store.state.tasks;
     }
+   
   },
+    
   methods: {
     addTask() {
       this.$store.dispatch("addTask", this.newTask);
@@ -64,9 +73,7 @@ export default {
       let boardId = this.listData.boardId;
       this.$store.dispatch("deleteListById", { id, boardId });
     },
-    components: {
-      Task
-    }
+  
   }
 };
 </script>

@@ -1,5 +1,14 @@
 <template>
-  <div class="task">hi</div>
+  <div class="task">
+    <h1>{{taskData.title}}</h1>
+      <img
+                src="https://image.flaticon.com/icons/png/512/61/61848.png"
+                class="delete-icon"
+                @click="deleteThisList()"
+                alt
+              />
+
+  </div>
 </template>
 
 
@@ -23,4 +32,8 @@ export default {
 
 
 <style scoped>
+.delete-icon {
+  width: 20%;
+  height: auto;
+}
 </style>
