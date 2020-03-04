@@ -17,7 +17,7 @@
               <button type="submit">Create Task</button>
             </form>
             <!-- <p class="card-text">{{listData.boardId}}</p> -->
-            <task v-for="(task, index) in tasks" :key="task._id" :taskData="task" />
+            <task v-for="(task) in tasks" :key="task._id" :taskData="task" />
           </div>
         </div>
       </div>
@@ -32,11 +32,9 @@ export default {
   name: "list",
   props: ["listData"],
   mounted() {
-    this.$store.dispatch(
-      "getTasksbyBoardListId",
-      this.$route.params.boardId,
-      this.lists[index].id
-    );
+    let listId = this.listData.id;
+    let boardId = this.listData.boardId;
+    this.$store.dispatch("getTasksbyBoardListId", { boardId, listId });
   },
   data() {
     return {

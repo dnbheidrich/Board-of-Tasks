@@ -1,11 +1,11 @@
 <template>
-  <div class="task">hi</div>
+  <div class="task">{{taskData.title}}</div>
 </template>
 
 
 <script>
 export default {
-  name: "task",
+  name: "Task",
   props: ["taskData"],
 
   data() {
