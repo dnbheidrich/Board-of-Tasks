@@ -1,6 +1,8 @@
 <template>
-  <div class="boards my-bg">
-    <h1 class="text-light">WELCOME TO THE BOARDS!!!</h1>
+  <div class="boards my-bg container-fluid">
+    <div class="row">
+    <h1 class="text-light col-12">WELCOME TO THE BOARDS!!!</h1>
+    </div>
     <form @submit.prevent="addBoard">
       <input type="text" placeholder="title" v-model="newBoard.title" required />
       <input type="text" placeholder="description" v-model="newBoard.description" />
@@ -58,11 +60,14 @@ export default {
 }
 .my-bg{
   /* NOTE THIS MAY REQUIRE MOVING TO THE OTHER DIRECTORY */
-  background-image: url("../assets/space.jpg");
+  background-image: url("../assets/space3.jpg");
+  background-repeat: no-repeat;
   background-position: center;
-  height: 100%;
+  background-size: contain;
+  background-size: cover;
   min-height: 100vh;
-  width: 100%
+  height: 100%;
+  width: 100%;
   
 }
 </style>

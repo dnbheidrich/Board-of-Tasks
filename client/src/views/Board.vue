@@ -1,5 +1,5 @@
 <template>
-  <div class="board">
+  <div class="board my-bg">
     <h1 v-if="board.title">
       <b>{{board.title}}</b>
       : {{board.description}}
@@ -71,5 +71,17 @@ export default {
 .delete-icon {
   width: 1.7%;
   height: auto;
+}
+.my-bg{
+  /* NOTE THIS MAY REQUIRE MOVING TO THE OTHER DIRECTORY */
+  background-image: url("../assets/space4.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-size: cover;
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  
 }
 </style>
