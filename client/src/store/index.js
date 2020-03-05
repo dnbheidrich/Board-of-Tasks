@@ -45,6 +45,12 @@ export default new Vuex.Store({
     addTask(state, taskNew) {
       state.tasks[taskNew.listId].push(taskNew)
     },
+    setComments(state, comments) {
+      Vue.set(state.comments, comments.taskId, comments.data)
+    },
+    addComment(state, commentNew) {
+      state.comments[commentNew.taskId].push(commentNew)
+    }
 
   },
   actions: {
@@ -136,9 +142,6 @@ export default new Vuex.Store({
     //#endregion
     //#region -- TASKS --
 
-
-    // async getTasksbyBoardListId({ commit, dispatch }, { boardId, listId }) {
-
     async getTasksbyListId({ commit, dispatch }, listId) {
       try {
         let res = await api.get("lists/" + listId + "/tasks")
@@ -175,7 +178,37 @@ export default new Vuex.Store({
       } catch (error) {
         console.error(error);
       }
-    }
+    },
+    //#endregion
+    //#region -- COMMENTS --
+    async getCommentsbyTaskId({ commit, dispatch }, taskId) {
+      try {
+        let res = await api.get("tasks/" + taskId + "/comments")
+        commit("setComments", { taskId, data: res.data })
+      } catch (error) {
+        console.error(error);
+      }
+    },
+
+
+    async addComment({ commit, dispatch }, commentData) {
+      try {
+        let res = await api.post("comments", commentData)
+        commit("addComment", res.data)
+      } catch (error) {
+        console.error(error);
+      }
+    },
+
+
+    async deleteCommentById({ commit, dispatch }, { id, taskId }) {
+      try {
+        let res = await api.delete("comments/" + id)
+        dispatch("getCommentsbyTaskId", taskId)
+      } catch (error) {
+        console.error(error);
+      }
+    },
     //#endregion
   }
 })
