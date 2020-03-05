@@ -6,14 +6,13 @@ import { commentsService } from '../services/CommentsService'
 
 
 //PUBLIC
-export class TasksController extends BaseController {
+export class CommentsController extends BaseController {
   constructor() {
     super("api/comments")
     this.router = express.Router()
       .use(auth0provider.getAuthorizedUserInfo)
       .get('', this.getAll)
       .get('/:id', this.getById)
-      .get('/:id/tasks', this.getCommentByTaskId)
       .post('', this.create)
       .put('/:id', this.edit)
       .delete('/:id', this.delete)
