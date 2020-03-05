@@ -1,5 +1,5 @@
 <template>
-  <div class="task">
+  <div class="task bg-info">
     <span>{{taskData.title}}</span>
     <img
       src="https://image.flaticon.com/icons/png/512/61/61848.png"
@@ -10,7 +10,7 @@
     <div class="btn-group">
       <button
         type="button"
-        class="btn btn-danger dropdown-toggle"
+        class="btn btn-primary dropdown-toggle"
         data-toggle="dropdown"
         aria-haspopup="true"
         aria-expanded="false"
@@ -27,6 +27,12 @@
         </a>
       </div>
     </div>
+
+    <form @submit.prevent="addComment">
+      <input type="text" placeholder="title" v-model="newComment.title" required />
+      <button type="submit">Comment</button>
+    </form>
+
     <comment v-for="(comment) in comments" :key="comment._id" :commentData="comment" />
   </div>
 </template>
@@ -38,9 +44,16 @@ import List from "../components/List";
 export default {
   name: "task",
   props: ["taskData"],
-
+  mounted() {
+    this.$store.dispatch("getCommentsbyTaskId", this.taskData.id);
+  },
   data() {
-    return {};
+    return {
+      newComment: {
+        title: "",
+        taskId: this.taskData.id
+      }
+    };
   },
   computed: {
     tasks() {
@@ -50,7 +63,7 @@ export default {
       return this.$store.state.lists;
     },
     comments() {
-      return this.$store.state.comments;
+      return this.$store.state.comments[this.taskData.id];
     }
   },
   methods: {
@@ -64,6 +77,9 @@ export default {
       let listId = this.lists[index].id;
       let oldListId = this.taskData.listId;
       this.$store.dispatch("moveTaskToList", { id, listId, oldListId });
+    },
+    addComment() {
+      this.$store.dispatch("addComment", this.newComment);
     }
   },
   components: {
