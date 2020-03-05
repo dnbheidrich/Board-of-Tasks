@@ -1,6 +1,6 @@
 <template>
-  <div class="boards">
-    WELCOME TO THE BOARDS!!!
+  <div class="boards my-bg">
+    <h1 class="text-light">WELCOME TO THE BOARDS!!!</h1>
     <form @submit.prevent="addBoard">
       <input type="text" placeholder="title" v-model="newBoard.title" required />
       <input type="text" placeholder="description" v-model="newBoard.description" />
@@ -55,5 +55,14 @@ export default {
 .delete-icon {
   width: 1.7%;
   height: auto;
+}
+.my-bg{
+  /* NOTE THIS MAY REQUIRE MOVING TO THE OTHER DIRECTORY */
+  background-image: url("../assets/space.jpg");
+  background-position: center;
+  height: 100%;
+  min-height: 100vh;
+  width: 100%
+  
 }
 </style>

@@ -192,7 +192,6 @@ export default new Vuex.Store({
 
 
     async addComment({ commit, dispatch }, commentData) {
-      debugger
       try {
         let res = await api.post("comments", commentData)
         commit("addComment", res.data)
