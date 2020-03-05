@@ -1,7 +1,7 @@
 <template>
   <div class="list container-fluid">
     <div class="row text-center">
-      <div class="col-6">
+      <div class="col-10">
         <div class="card text-left">
           <div class="card-body bg-dark text-white text-center">
             <h4 class="card-title">{{listData.title}}</h4>
@@ -13,11 +13,10 @@
                 alt
               />
               <input type="text" placeholder="title" v-model="newTask.title" required />
-              <!-- v-model="newTask.title" -->
               <button type="submit">Create Task</button>
             </form>
             <!-- <p class="card-text">{{listData.boardId}}</p> -->
-            <task v-for="(task) in tasks" :key="task._id" :taskData="task" :listData="list" />
+            <task v-for="(task) in tasks" :key="task._id" :taskData="task" />
           </div>
         </div>
       </div>
@@ -32,10 +31,7 @@ export default {
   name: "list",
   props: ["listData"],
   mounted() {
-    let listId = this.listData.id;
-    let boardId = this.listData.boardId;
-    //this.$store.dispatch("getTasksbyBoardListId", { boardId, listId });
-    this.$store.dispatch("getTasksbyListId", listId);
+    this.$store.dispatch("getTasksbyListId", this.listData.id);
   },
   data() {
     return {
@@ -52,8 +48,7 @@ export default {
     },
     tasks() {
       return this.$store.state.tasks[this.listData.id];
-    },
-    
+    }
   },
   methods: {
     addTask() {
@@ -75,7 +70,7 @@ export default {
 
 <style scoped>
 .delete-icon {
-  width: 20%;
+  width: 10%;
   height: auto;
 }
 </style>
