@@ -15,8 +15,7 @@
     <a class="dropdown-item" href="#">
 <list class="dropdown-menu"  v-for="(list, index) in lists" :key="list._id" />
 <p>{{listData[0].title}}</p>
-<p>{{listData[1].title}}</p>
-<p>{{listData[2].title}}</p>
+
 </a>
   </div>
 </div>
