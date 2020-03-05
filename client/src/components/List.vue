@@ -34,8 +34,8 @@ export default {
   mounted() {
     let listId = this.listData.id;
     let boardId = this.listData.boardId;
-    this.$store.dispatch("getTasksbyBoardListId", { boardId, listId });
-    this;
+    //this.$store.dispatch("getTasksbyBoardListId", { boardId, listId });
+    this.$store.dispatch("getTasksbyListId", listId);
   },
   data() {
     return {
@@ -64,6 +64,7 @@ export default {
       this.$store.dispatch("deleteListById", { id, boardId });
     }
   },
+
   components: {
     Task
   }
