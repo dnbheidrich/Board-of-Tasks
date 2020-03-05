@@ -17,7 +17,7 @@
               <button type="submit">Create Task</button>
             </form>
             <!-- <p class="card-text">{{listData.boardId}}</p> -->
-            <task v-for="(task) in tasks" :key="task._id" :taskData="task" />
+            <task v-for="(task) in tasks" :key="task._id" :taskData="task" :listData="list" />
           </div>
         </div>
       </div>
@@ -52,7 +52,8 @@ export default {
     },
     tasks() {
       return this.$store.state.tasks[this.listData.id];
-    }
+    },
+    
   },
   methods: {
     addTask() {
