@@ -17,7 +17,7 @@
       <button type="submit">Create List</button>
     </form>
     <div id="list-section">
-      <list v-for="(list, index) in lists" :key="list._id" :listData="list" :lisIndex="index" />
+      <list v-for="(list, index) in lists" :key="list._id" :listData="list" />
     </div>
   </div>
 </template>

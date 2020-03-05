@@ -164,6 +164,19 @@ export default new Vuex.Store({
       } catch (error) {
         console.error(error);
       }
+    },
+
+    async moveTaskToList({ commit, dispatch }, { id, listId }) {
+      try {
+
+        let res = await api.put("tasks/" + id, { listId })
+        //commit("setTasks", { listId, data: res.data })
+        //let res = await api.delete("tasks/" + id)
+        dispatch("getTasksbyListId", listId)
+        router.push({ name: "board" })
+      } catch (error) {
+        console.error(error);
+      }
     }
     //#endregion
   }
