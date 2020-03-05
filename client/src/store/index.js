@@ -166,14 +166,12 @@ export default new Vuex.Store({
       }
     },
 
-    async moveTaskToList({ commit, dispatch }, { id, listId }) {
+    async moveTaskToList({ commit, dispatch }, { id, listId, oldListId }) {
       try {
-
         let res = await api.put("tasks/" + id, { listId })
-        //commit("setTasks", { listId, data: res.data })
-        //let res = await api.delete("tasks/" + id)
         dispatch("getTasksbyListId", listId)
-        router.push({ name: "board" })
+        dispatch("getTasksbyListId", oldListId)
+
       } catch (error) {
         console.error(error);
       }

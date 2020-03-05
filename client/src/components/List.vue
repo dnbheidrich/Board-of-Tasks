@@ -31,10 +31,7 @@ export default {
   name: "list",
   props: ["listData"],
   mounted() {
-    let listId = this.listData.id;
-    let boardId = this.listData.boardId;
-    //this.$store.dispatch("getTasksbyBoardListId", { boardId, listId });
-    this.$store.dispatch("getTasksbyListId", listId);
+    this.$store.dispatch("getTasksbyListId", this.listData.id);
   },
   data() {
     return {

@@ -18,7 +18,6 @@
       <div class="dropdown-menu">
         <a
           class="dropdown-item"
-          href="#"
           v-for="(list, index) in lists"
           :key="list._id"
           @click="moveTask(index)"
@@ -63,8 +62,8 @@ export default {
     moveTask(index) {
       let id = this.taskData.id;
       let listId = this.lists[index].id;
-      debugger;
-      this.$store.dispatch("moveTaskToList", { id, listId });
+      let oldListId = this.taskData.listId;
+      this.$store.dispatch("moveTaskToList", { id, listId, oldListId });
     }
   },
   components: {
