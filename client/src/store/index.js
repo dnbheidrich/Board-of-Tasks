@@ -199,9 +199,17 @@ export default new Vuex.Store({
       } catch (error) {
         console.error(error);
       }
+    },
 
 
-    }
+    async deleteCommentById({ commit, dispatch }, { id, taskId }) {
+      try {
+        let res = await api.delete("comments/" + id)
+        dispatch("getCommentsbyTaskId", taskId)
+      } catch (error) {
+        console.error(error);
+      }
+    },
     //#endregion
   }
 })
