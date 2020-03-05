@@ -136,7 +136,9 @@ export default new Vuex.Store({
     //#region -- TASKS --
 
 
-    async getTasksbyBoardListId({ commit, dispatch }, { boardId, listId }) {
+    // async getTasksbyBoardListId({ commit, dispatch }, { boardId, listId }) {
+
+    async getTasksbyListId({ commit, dispatch }, listId) {
       try {
         let res = await api.get("lists/" + listId + "/tasks")
         commit("setTasks", { listId, data: res.data })
@@ -149,6 +151,15 @@ export default new Vuex.Store({
       try {
         let res = await api.post("tasks", taskData)
         commit("addTask", res.data)
+      } catch (error) {
+        console.error(error);
+      }
+    },
+
+    async deleteTaskById({ commit, dispatch }, { id, listId }) {
+      try {
+        let res = await api.delete("tasks/" + id)
+        dispatch("getTasksbyListId", listId)
       } catch (error) {
         console.error(error);
       }
