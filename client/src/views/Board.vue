@@ -103,7 +103,7 @@ export default {
 
 <style scoped>
 .delete-icon {
-  width: 1.7%;
+  width: 50px;
   height: auto;
 }
 

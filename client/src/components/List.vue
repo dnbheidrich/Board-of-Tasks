@@ -8,18 +8,18 @@
                 alt
               />
       <div class="row">
-        <div class="col-4 text-info p-3 text-left">
+        <div class="col-12 text-info p-3 text-left">
           <h4 class="">{{listData.title}}</h4>
          
             <form  class="row" @submit.prevent="addTask">
-              <input class="col-9 offset-1" type="text" placeholder="add task" v-model="newTask.title" required />
+              <input class="col-8 offset-1" type="text" placeholder="add task" v-model="newTask.title" required />
               <button class="col-2 btn btn-secondary" type="submit"><b>+</b></button>
             </form>
 
         </div>
 
 
- <div class="col-8">
+ <div class="col-8 offset-2">
            <task v-for="(task) in tasks" :key="task._id" :taskData="task" />
         </div>
 
@@ -108,7 +108,7 @@ export default {
 
 <style scoped>
 .delete-icon {
-  width: 10%;
+  width: 40px;
   height: auto;
 }
 
