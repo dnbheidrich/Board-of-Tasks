@@ -90,7 +90,7 @@ export default {
   background-position: center;
   background-size: contain;
   background-size: cover;
-  /* min-height: 50vh; */
+  min-height: 25vh;
   /* height: 50%; */
   width: 50%;
   
