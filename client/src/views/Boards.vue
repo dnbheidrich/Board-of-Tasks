@@ -72,11 +72,14 @@ export default {
 }
 .my-bg{
   /* NOTE THIS MAY REQUIRE MOVING TO THE OTHER DIRECTORY */
-  background-image: url("../assets/space.jpg");
+  background-image: url("../assets/dSpace0.jpg");
+  background-repeat: no-repeat;
   background-position: center;
-  height: 100%;
+  background-size: contain;
+  background-size: cover;
   min-height: 100vh;
-  width: 100%
+  height: 100%;
+  width: 100;
   
 }
 .my-space{
