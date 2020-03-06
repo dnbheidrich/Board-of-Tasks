@@ -9,7 +9,7 @@
               />
       <div class="row">
         <div class="col-12 text-info p-3 text-left">
-          <h4 class="">{{listData.title}}</h4>
+          <h2 class="">{{listData.title}}</h2>
          
             <form  class="row" @submit.prevent="addTask">
               <input class="col-8 offset-1" type="text" placeholder="add task" v-model="newTask.title" required />
