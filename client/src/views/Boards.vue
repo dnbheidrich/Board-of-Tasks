@@ -11,7 +11,7 @@
         <div class=" my-bg2 card">
           <img class="card-img-top" src="holder.js/100px180/" alt="">
           <div class="card-body">
-            <h4 class="card-title">
+            <h4 class="text-danger card-title">
         {{board.title}}
             </h4>
             <span class="card-text">{{board.creatorEmail}}
