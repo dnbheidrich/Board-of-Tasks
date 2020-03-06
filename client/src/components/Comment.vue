@@ -1,12 +1,23 @@
 <template>
-  <div class="comment">
-    <span>{{commentData.title}}</span>
-    <img
-      src="https://image.flaticon.com/icons/png/512/61/61848.png"
-      class="delete-icon"
-      @click="deleteThisComment()"
-      alt
-    />
+  <div class="comment text-left row justify-content-between">
+    
+    
+    <div class="col-8 text-secondary">
+      {{commentData.title}}
+    </div>
+
+
+    <!-- <span>{{commentData.title}}</span> -->
+
+    <div class="col-2">
+      <img
+        src="../assets/pop.png"
+        class="delete-icon"
+        @click="deleteThisComment()"
+        alt
+      />
+    </div>
+    
   </div>
 </template>
 
@@ -41,7 +52,7 @@ export default {
 
 <style scoped>
 .delete-icon {
-  width: 2%;
+  width: 20px;
   height: auto;
 }
 

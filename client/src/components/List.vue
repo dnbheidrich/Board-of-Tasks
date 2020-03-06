@@ -1,7 +1,40 @@
 <template>
-  <div class="list container-fluid">
-    <div class="row text-center">
-      <div class="col-10">
+  <div class="list row text-center">
+    <div class="col-12 text-right bg-op">
+      <img
+                src="../assets/pop.png"
+                class="delete-icon img-fluid"
+                @click="deleteThisList()"
+                alt
+              />
+      <div class="row">
+        <div class="col-12 text-info p-3 text-left">
+          <h2 class="">{{listData.title}}</h2>
+         
+            <form  class="row" @submit.prevent="addTask">
+              <input class="col-8 offset-1" type="text" placeholder="add task" v-model="newTask.title" required />
+              <button class="col-2 btn btn-secondary" type="submit"><b>+</b></button>
+            </form>
+
+        </div>
+
+
+ <div class="col-8 offset-2">
+           <task v-for="(task) in tasks" :key="task._id" :taskData="task" />
+        </div>
+
+         <div class="col-12">
+          <br>
+         </div>
+
+      </div>
+    </div>
+
+    
+    
+      <!-- <div class="col-10">
+
+
         <div class="card text-left">
           <div class="card-body bg-dark text-white text-center">
             <h4 class="card-title">{{listData.title}}</h4>
@@ -15,12 +48,17 @@
               <input type="text" placeholder="title" v-model="newTask.title" required />
               <button type="submit">Create Task</button>
             </form>
-            <!-- <p class="card-text">{{listData.boardId}}</p> -->
             <task v-for="(task) in tasks" :key="task._id" :taskData="task" />
           </div>
         </div>
       </div>
-    </div>
+   -->
+
+
+<div class="col-12 no-bg">
+  <br>
+</div>
+
   </div>
 </template>
 
@@ -70,7 +108,12 @@ export default {
 
 <style scoped>
 .delete-icon {
-  width: 10%;
+  width: 40px;
   height: auto;
 }
+
+.bg-op{
+  background-color: rgba(0,0,0,.7)
+}
+
 </style>
