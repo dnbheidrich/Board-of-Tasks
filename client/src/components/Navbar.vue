@@ -10,7 +10,7 @@
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
-      <span class="navbar-toggler-icon"></span>
+      <span class="bg-light navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse text-white" id="navbarText">
       <ul class="navbar-nav mr-auto">
@@ -22,7 +22,7 @@
           v-if="$auth.isAuthenticated"
           :class="{ active: $route.name == 'boards' }"
         >
-          <router-link class="nav-link text-white" :to="{ name: 'boards' }">My-Dashboard</router-link>
+          <router-link class="nav-link text-white" :to="{ name: 'boards' }">My-Starboard</router-link>
         </li>
       </ul>
       <span class="navbar-text">
