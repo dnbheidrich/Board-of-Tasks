@@ -44,4 +44,6 @@ export default {
   width: 2%;
   height: auto;
 }
+
+
 </style>

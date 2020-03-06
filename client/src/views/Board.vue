@@ -72,4 +72,5 @@ export default {
   width: 1.7%;
   height: auto;
 }
+
 </style>
