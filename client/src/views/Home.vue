@@ -63,7 +63,7 @@ export default {
   background-size: cover;
   min-height: 100vh;
   height: 100%;
-  width: 50%;
+  width: 100;
 }
 .authImg{
    height: 75%;
