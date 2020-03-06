@@ -63,16 +63,16 @@ export default {
   background-size: cover;
   min-height: 100vh;
   height: 100%;
-  width: 100;
+  width: 100%;
 }
 .authImg{
    height: 75%;
-  width: 100;
+  width: 100%;
   position: center;
 }
 .noAuthImg{
    height: 25%;
-  width: 50;
+  width: 50%;
   position: center;
 
 }
