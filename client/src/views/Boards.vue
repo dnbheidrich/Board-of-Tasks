@@ -85,7 +85,7 @@ export default {
 }
 .my-bg2{
   /* NOTE THIS MAY REQUIRE MOVING TO THE OTHER DIRECTORY */
- background-image: url("../assets/dSpace2.jpg");
+ background-image: url("../assets/dSpace3.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
