@@ -45,7 +45,7 @@ export default {
 <style scoped>
 .my-bg{
   /* NOTE THIS MAY REQUIRE MOVING TO THE OTHER DIRECTORY */
- background-image: url("../assets/dSpace5.jpg");
+ background-image: url("../assets/space2.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -63,7 +63,7 @@ export default {
   background-size: cover;
   min-height: 100vh;
   height: 100%;
-  width: 100;
+  width: 50%;
 }
 .authImg{
    height: 75%;
