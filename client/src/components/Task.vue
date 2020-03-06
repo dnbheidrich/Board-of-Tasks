@@ -96,7 +96,7 @@
         <a
           class="dropdown-item"
           v-for="(list, index) in lists"
-           v-if="(list.id!=taskData.listId)"
+          v-if="(list.id!=taskData.listId)"
           :key="list._id"
           @click="moveTask(index)"
         >

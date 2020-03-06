@@ -41,6 +41,7 @@
           <br>
         </div>
       </div>
+
     </div>
 
 
@@ -99,7 +100,9 @@ export default {
 }
 .my-bg{
   /* NOTE THIS MAY REQUIRE MOVING TO THE OTHER DIRECTORY */
+
   background-image: url("../assets/space3.jpg");
+
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -107,6 +110,5 @@ export default {
   min-height: 100vh;
   height: 100%;
   width: 100%;
-  
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <router-link class="navbar-brand" :to="{ name: 'home' }">Kanban</router-link>
+  <nav class="navbar navbar-expand-lg navBg  text-white" >
+    <router-link class="navbar-brand text-white" :to="{ name: 'home' }">Infinite</router-link>
     <button
       class="navbar-toggler"
       type="button"
@@ -10,19 +10,19 @@
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
-      <span class="navbar-toggler-icon"></span>
+      <span class="bg-light navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarText">
+    <div class="collapse navbar-collapse text-white" id="navbarText">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item" :class="{ active: $route.name == 'home' }">
-          <router-link :to="{ name: 'home' }" class="nav-link">Home</router-link>
+        <li class="nav-item text-white" :class="{ active: $route.name == 'home' }">
+          <router-link :to="{ name: 'home' }" class="nav-link text-white">Home</router-link>
         </li>
         <li
           class="nav-item"
           v-if="$auth.isAuthenticated"
           :class="{ active: $route.name == 'boards' }"
         >
-          <router-link class="nav-link" :to="{ name: 'boards' }">My-Dashboard</router-link>
+          <router-link class="nav-link text-white" :to="{ name: 'boards' }">My-Starboard</router-link>
         </li>
       </ul>
       <span class="navbar-text">
@@ -59,4 +59,16 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.navBg {
+ background-image: url("../assets/space2.jpg");
+ background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-size: cover;
+  /* min-height: 100vh; */
+  height: 100%;
+  width: 100;
+  
+}
+</style>

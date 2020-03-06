@@ -55,4 +55,6 @@ export default {
   width: 20px;
   height: auto;
 }
+
+
 </style>
