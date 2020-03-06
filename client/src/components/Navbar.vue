@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg  black text-white" >
+  <nav class="navbar navbar-expand-lg navBg  text-white" >
     <router-link class="navbar-brand text-white" :to="{ name: 'home' }">Infinite</router-link>
     <button
       class="navbar-toggler"
@@ -60,7 +60,15 @@ export default {
 </script>
 
 <style scoped>
-.black {
-  background-color: black;
+.navBg {
+ background-image: url("../assets/space2.jpg");
+ background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-size: cover;
+  /* min-height: 100vh; */
+  height: 100%;
+  width: 100;
+  
 }
 </style>
