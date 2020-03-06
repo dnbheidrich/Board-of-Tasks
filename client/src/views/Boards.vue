@@ -1,22 +1,57 @@
 <template>
   <div class="boards my-bg container-fluid">
+
     <div class="row">
-    <h1 class="text-light col-12">WELCOME TO THE BOARDS!!!</h1>
+      <h1 class="text-light col-12 p-5">WELCOME TO THE BOARDS!!!</h1>
     </div>
-    <form @submit.prevent="addBoard">
-      <input type="text" placeholder="title" v-model="newBoard.title" required />
-      <input type="text" placeholder="description" v-model="newBoard.description" />
-      <button type="submit">Create Board</button>
+
+
+    <div class="row">
+    <div class="col-12">
+    <div class="m-4">
+    <form class="row justify-content-center" @submit.prevent="addBoard">
+      <input class="col-5" type="text" placeholder="title" v-model="newBoard.title" required />
+      <input class="col-5" type="text" placeholder="description" v-model="newBoard.description" />
+      <button type="submit" class="btn btn-secondary col-1"><b>+</b></button>
     </form>
-    <div v-for="(board, index) in boards" :key="board._id">
-      <router-link :to="{name: 'board', params: {boardId: board._id}}">{{board.title}}</router-link>
-      <img
-        src="https://image.flaticon.com/icons/png/512/61/61848.png"
-        class="delete-icon"
-        @click="deleteBoard(index)"
-        alt
-      />
     </div>
+    </div>
+    </div>
+
+    <div v-for="(board, index) in boards" :key="board._id">
+      <div class="row">
+        <div class="col-10 offset-1">
+
+
+          <div class="bg-op row justify-content-around">
+                <h2><router-link class="text-info col-6 align-middle" :to="{name: 'board', params: {boardId: board._id}}">{{board.title}}</router-link></h2>
+                 <span class="col-2"></span>
+                  <img
+                  src="../assets/pop.png"
+                  class="delete-icon col-2 img-fluid"
+                  @click="deleteBoard(index)"
+                  alt
+                />
+
+            </div>
+
+
+        </div>
+        <div class="col-12">
+          <br>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
   </div>
 </template>
 
@@ -57,6 +92,10 @@ export default {
 .delete-icon {
   width: 1.7%;
   height: auto;
+}
+
+.bg-op{
+  background-color: rgba(0,0,0,.7)
 }
 .my-bg{
   /* NOTE THIS MAY REQUIRE MOVING TO THE OTHER DIRECTORY */

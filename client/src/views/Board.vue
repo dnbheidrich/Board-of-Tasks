@@ -1,24 +1,58 @@
 <template>
-  <div class="board my-bg">
-    <h1 v-if="board.title">
+  <div class="board my-bg container-fluid">
+
+
+    <div class="row">
+      <div class="col-12 text-right ">
+         <img
+      src="../assets/pop.png"
+      class="delete-icon img-fluid"
+      @click="deleteThisBoard()"
+      alt
+    />
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-12 p-4 text-light">
+<h1 v-if="board.title">
       <b>{{board.title}}</b>
       : {{board.description}}
     </h1>
     <h1 v-else>Loading...Why?!</h1>
     <p>{{board.creatorEmail}}</p>
-    <img
-      src="https://image.flaticon.com/icons/png/512/61/61848.png"
-      class="delete-icon"
-      @click="deleteThisBoard()"
-      alt
-    />
-    <form @submit.prevent="addList">
-      <input type="text" placeholder="title" v-model="newList.title" required />
-      <button type="submit">Create List</button>
-    </form>
-    <div id="list-section">
-      <list v-for="(list, index) in lists" :key="list._id" :listData="list" />
+      </div>
     </div>
+    
+    <div class="row">
+      <div class="col-12">
+ <form class="row justify-content-center" @submit.prevent="addList">
+      <input class="col-8" type="text" placeholder="title" v-model="newList.title" required />
+      <button class="col-2 btn btn-secondary" type="submit"><b>+</b> List</button>
+    </form>
+      </div>
+      <div class="col-12"><br></div>
+    </div>
+
+
+   
+    <div id="list-section" class="row">
+      <div class="col-12">
+        
+<list v-for="(list, index) in lists" :key="list._id" :listData="list" />
+    
+      </div>
+      
+    
+    </div>
+
+
+
+
+
+
+
   </div>
 </template>
 
@@ -71,6 +105,10 @@ export default {
 .delete-icon {
   width: 1.7%;
   height: auto;
+}
+
+.bg-op{
+  background-color: rgba(0,0,0,.7)
 }
 .my-bg{
   /* NOTE THIS MAY REQUIRE MOVING TO THE OTHER DIRECTORY */
