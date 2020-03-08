@@ -10,7 +10,7 @@
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
-      <span class="bg-light navbar-toggler-icon"></span>
+      <span class="moonImg navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse text-white" id="navbarText">
       <ul class="navbar-nav mr-auto">
@@ -72,5 +72,9 @@ export default {
   height: 100%;
   width: 100;
   
+}
+.moonImg{
+background-image: url("../assets/dSpace.jpg");
+border: 0vw;
 }
 </style>
