@@ -75,6 +75,6 @@ export default {
 }
 .moonImg{
 background-image: url("../assets/dSpace.jpg");
-border: 0vw;
+border-radius: 50%;
 }
 </style>
